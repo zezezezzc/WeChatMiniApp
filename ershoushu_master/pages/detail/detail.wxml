@@ -1,0 +1,44 @@
+<!--pages/detail/detail.wxml-->
+<!-- banner -->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{goods.imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" data-src="{{item}}" bindtap="previewImage" mode="widthFix"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<!--商品价格和商品描述-->
+<view>
+  <view class="product-name-wrap">
+    {{goods.title}}
+  </view>
+  <view class="product-name-wrap">
+    <text>发布时间: {{postTime[0]}}-{{postTime[1]}}-{{postTime[2]}} {{postTime[3]}}:{{postTime[4]}}</text>
+  </view>
+  d
+  <view class="product-price-wrap">
+      <view>
+        <p class="product-name-wrap">{{pros_New[goods.isNew]}}</p>
+        <p class="product-price-new">￥{{goods.price}}</p>        
+      </view>
+  </view>
+</view>
+
+<view class="details"> 
+  <scroll-view scroll-y="true">
+    <text>物品详情</text>
+      <view class="product-name-wrap">
+        <text>{{goodsIntro}}</text>
+      </view>
+    <block wx:for-items="{{goods.detailImg}}" wx:key="name">
+       <image class="image_detail" src="{{item}}" mode="widthFix"/>
+    </block>
+    <view class="temp"></view>
+  </scroll-view>
+</view>
+
+<!-- 底部悬浮栏 -->
+<view class="detail-nav">
+  <button data-goodid="1" class="button-green" bindtap="topostUser">查看发布人</button>
+  <button class="button-red" bindtap="imaddpoint" formType="submit">加入收藏夹</button>
+</view>

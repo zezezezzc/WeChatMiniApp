@@ -1,0 +1,33 @@
+<!--pages/my/myPost/myPost.wxml-->
+<view class="weui-cells weui-cells_after-title">
+  <block wx:if="{{postList.length>0}}">
+    <view class="weui-media-box weui-media-box_text" wx:for="{{postList}}" wx:key="p_id">
+      <view class="weui-media-box__title weui-media-box__title_in-text">{{item.p_title}}</view>
+      <view class="weui-media-box__desc">
+        <text>售价: {{item.p_price}}元</text>
+      </view>
+      <view class="weui-media-box__desc">
+        <text>成色: {{pros_New[item.p_isnew]}}</text>
+      </view>
+      <view class="picture_list">
+        <image  src="{{item.p_image_0}}" mode="aspectFill"></image>
+        <image  src="{{item.p_image_1}}" mode="aspectFill"></image>
+      </view>
+
+      <view class="weui-media-box__info">
+        <!-- <view class="weui-media-box__info__meta weui-media-time">{{item.updatedAt}}</view> -->
+        <view class="weui-media-box__info__meta weui-media-box__info__operate">
+          <icon type="cancel" size="16"></icon>
+          <text class="del" catchtap="deletePost" data-id="{{item.p_id}}">下架</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">暂无发布</view>
+      <view class="weui-media-box__desc"></view>
+    </view>
+  </block>
+</view>

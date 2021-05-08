@@ -1,0 +1,110 @@
+<!--index.wxml-->
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">校区</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindCampusChange" value="{{campusIndex}}" range="{{campus}}">
+        <view class="weui-select weui-select_in-select-after">{{campus[campusIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-panel">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="物品名称" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="bindSearch" />
+          <!-- <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view> -->
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+  </view>
+</view>
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="key">
+    <swiper-item>
+      <image bindtap='goToDetail' src="{{item}}" class="slide-image" width="" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 分类 -->
+<!-- <view class='fenlei'>
+  <navigator url='../classify/classify' open-type="switchTab" class='navi navi-zahuopu'>
+    <view class='leibie fenlei-zahuopu'>
+      <image src='../../images/fenlei/zahuopu.png'></image>
+      <view>二手物品</view>
+    </view>
+  </navigator>
+
+  <navigator url='..//' class='navi navi-jianzhi'>
+    <view class='leibie fenlei-jianzhi'>
+      <image src='../../images/fenlei/jianzhi.png'></image>
+      <view>官方微信</view>
+    </view>
+  </navigator>
+
+  <navigator url='..//' class='navi navi-jishou'>
+    <view class='leibie fenlei-jishou'>
+      <image src='../../images/fenlei/jishou.png'></image>
+      <view>失物招领</view>
+    </view>
+  </navigator>
+
+  <navigator url='..//' class='navi navi-gongyi'>
+    <view class='leibie fenlei-gongyi'>
+      <image src='../../images/fenlei/gongyi.png'></image>
+      <view>爱心公益</view>
+    </view>
+  </navigator>
+</view> -->
+
+<view class="separate"></view>
+
+<!--商品显示 start-->
+  <view class="welfare-container"> 
+  <view class="category-title">
+    <text class="title">每日淘好物</text>
+    <!-- <view class="line_name">
+      <text>每天早10晚8准时上新</text>
+    </view> -->
+  </view>
+  <scroll-view scroll-y="true" >
+      <view class="welfares">
+         <block wx:for-items="{{newGoods}}" ><!-- 无索引顺序 -->
+          <view class="welfares-good" catchtap="catchTapCategory" data-name="{{item.p_title}}" data-goodsid="{{item.p_id}}">
+            <view>
+              <image src="{{item.p_image_0}}" class="welfares-image" mode="widthFix"/> 
+            </view>
+            <view class="product-name">
+              {{item.p_title}}
+            </view>
+            <!-- <view class="product-price-wrap">
+              <p class="product-price-new">￥{{item.price}}</p>  
+              <p class="product-price-old">￥{{item.privilegePrice}}</p> 
+              <p class="discount">{{item.discount}}折</p>
+            </view> -->            
+          </view>
+        </block> 
+      </view>
+  </scroll-view>  
+</view>
+
+<!--加载中动画 end-->
+<view class="weui-loadmore" hidden="{{hidden}}">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">努力加载中</view>
+</view>
