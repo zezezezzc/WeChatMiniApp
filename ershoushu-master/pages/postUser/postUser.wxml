@@ -1,0 +1,53 @@
+<!--pages/postUser/postUser.wxml-->
+<view class='tab'>
+  <image class="userinfo-avatar" src="{{user.u_image}}" background-size="cover"></image>
+  <text class="userinfo-nickname">{{user.u_name}}</text>
+</view>
+
+<view class='tab'>
+  <view class='lan'>{{tabdata.title}}</view>
+  <view class='tent'>
+    <text>{{tabdata.attribute_attribute}}</text>
+    <text class='fl_r '>{{tabdata.num}}</text>
+  </view>
+  <view class='xiahuaxian1'></view>
+  <view>
+    <view class="weui-cell">学校:{{university}}</view>
+  </view>
+</view>
+
+<view class='tab'>
+  <view class='lan'>{{tabdata.title}}</view>
+  <view class='tent'>
+    <text>{{tabdata.attribute_attribute}}</text>
+    <text class='fl_r '>{{tabdata.num}}</text>
+  </view>
+  <view class='xiahuaxian1'></view>
+  <view>
+    <view class="weui-cell">所在校区:{{user.u_addr}}</view>    
+  </view>
+</view>
+
+<view class='tab'>
+  <view class='lan'>{{tabdata.title}}</view>
+  <view class='tent'>
+    <text>{{tabdata.attribute_attribute}}</text>
+    <text class='fl_r '>{{tabdata.num}}</text>
+  </view>
+  <view class='xiahuaxian1'></view>
+  <view>
+    <view class="weui-cell">QQ号:{{user.u_qq}}</view>    
+  </view>
+</view>
+
+<view class='tab'>
+  <view class='lan'>{{tabdata.title}}</view>
+  <view class='tent'>
+    <text>{{tabdata.attribute_attribute}}</text>
+    <text class='fl_r '>{{tabdata.num}}</text>
+  </view>
+  <view class='xiahuaxian1'></view>
+  <view>
+    <view class="weui-cell">手机号:{{user.u_phone}}</view>    
+  </view>
+</view>
