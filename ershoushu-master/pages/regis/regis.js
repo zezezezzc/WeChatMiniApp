@@ -92,7 +92,7 @@ Component({
       this.data.u_phone = e.detail.value;
       // console.log(this.data.u_phone)
     },
-    loginClick: function() {      
+    loginClick: function() {
       var u_reg_time = util.formatTime(new Date());// 调用函数时，传入new Date()参数，返回值是日期和时间
       // console.log(u_reg_time+"reg");  //注册时间
       var that = this;
@@ -148,7 +148,7 @@ Component({
             console.log("注册出错");
           }
         },
-      });     
+      });
     },
 
   }
